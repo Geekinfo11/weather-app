@@ -46,7 +46,6 @@ app.get('/weather',(req, res)=>{
             if(error){
                 return res.send({error:error});
             }
-            
             fullLocation(response.longitude, response.latitude,(error,location)=>{
                 if(error){
                     return res.send({error:error});
