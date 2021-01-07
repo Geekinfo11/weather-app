@@ -13,11 +13,12 @@ const weatherData = (cityName,callback) =>{
         else{
             callback(undefined,
                 result = {
-                    location:cityName,
+                    location:response.body.name,
                     description:response.body.weather[0].description,
-                    temperature:response.body.main.temp+'°C',
+                    temperature:response.body.main.temp,
                     longitude:response.body.coord.lon,
-                    latitude:response.body.coord.lat
+                    latitude:response.body.coord.lat,
+                    windSpeed:response.body.wind.speed
                 }
             );
         }

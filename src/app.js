@@ -46,15 +46,16 @@ app.get('/weather',(req, res)=>{
             if(error){
                 return res.send({error:error});
             }
-            fullLocation(response.longitude, response.latitude,(error,location)=>{
+            fullLocation(response.longitude, response.latitude,(error,fullLocation)=>{
                 if(error){
                     return res.send({error:error});
                 }
 
                 res.send({
-                    location:location,
+                    location:response.location,
                     description:response.description,
-                    temperature:response.temperature
+                    temperature:response.temperature,
+                    windSpeed:response.windSpeed
                 });
             });
 
